@@ -28,12 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            lblTitle = new Label();
+            lstEchoWindow = new ListBox();
+            txtInputMessage = new TextBox();
+            btnSendMessage = new Button();
+            SuspendLayout();
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("맑은 고딕", 36F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lblTitle.ForeColor = SystemColors.MenuHighlight;
+            lblTitle.Location = new Point(12, 9);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(481, 81);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Echo Messenger";
+            // 
+            // lstEchoWindow
+            // 
+            lstEchoWindow.BackColor = Color.DarkKhaki;
+            lstEchoWindow.FormattingEnabled = true;
+            lstEchoWindow.Location = new Point(29, 102);
+            lstEchoWindow.Name = "lstEchoWindow";
+            lstEchoWindow.Size = new Size(785, 324);
+            lstEchoWindow.TabIndex = 1;
+            // 
+            // txtInputMessage
+            // 
+            txtInputMessage.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            txtInputMessage.Location = new Point(29, 457);
+            txtInputMessage.Name = "txtInputMessage";
+            txtInputMessage.Size = new Size(785, 38);
+            txtInputMessage.TabIndex = 2;
+            txtInputMessage.Text = "(여기에 입력)";
+            // 
+            // btnSendMessage
+            // 
+            btnSendMessage.BackColor = Color.ForestGreen;
+            btnSendMessage.Font = new Font("Sitka Banner", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSendMessage.ForeColor = Color.Black;
+            btnSendMessage.Location = new Point(820, 441);
+            btnSendMessage.Name = "btnSendMessage";
+            btnSendMessage.Size = new Size(113, 75);
+            btnSendMessage.TabIndex = 3;
+            btnSendMessage.Text = "전송";
+            btnSendMessage.UseVisualStyleBackColor = false;
+            btnSendMessage.Click += btnSendMessage_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1001, 558);
+            Controls.Add(btnSendMessage);
+            Controls.Add(txtInputMessage);
+            Controls.Add(lstEchoWindow);
+            Controls.Add(lblTitle);
+            Name = "Form1";
             Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lblTitle;
+        private ListBox lstEchoWindow;
+        private TextBox txtInputMessage;
+        private Button btnSendMessage;
     }
 }
