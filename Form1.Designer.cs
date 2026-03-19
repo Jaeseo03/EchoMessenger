@@ -62,6 +62,7 @@
             txtInputMessage.Size = new Size(785, 38);
             txtInputMessage.TabIndex = 2;
             txtInputMessage.Text = "(여기에 입력)";
+            txtInputMessage.KeyDown += txtInputMessage_KeyDown;
             // 
             // btnSendMessage
             // 
