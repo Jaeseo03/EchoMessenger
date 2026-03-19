@@ -7,24 +7,31 @@ namespace EchoMessenger
             InitializeComponent();
         }
 
-        // [과제 1] 전송 버튼 클릭 시 이벤트 함수
+        // 전송 버튼 클릭 시 이벤트 함수
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-            // 데이터 유효성 검사 추가 (공백 전송 방지)
-            string inputContent = txtInputMessage.Text.Trim();
+            // 입력창의 텍스트 가져오기
+            string cleaned_msg = txtInputMessage.Text.Trim();
 
-            if (!string.IsNullOrEmpty(inputContent))
-            {
-                lstEchoWindow.Items.Add(inputContent);
-                txtInputMessage.Clear();
-                txtInputMessage.Focus(); // 전송 후 포커스 유지
+            // 현재 시간 정보 생성 (시:분:초 형식)
+            string time = DateTime.Now.ToString("HH:mm:ss");
 
-                // 리스트박스 아이템 추가 시 항상 마지막 항목이 보이도록 스크롤 처리
-                lstEchoWindow.TopIndex = lstEchoWindow.Items.Count - 1;
-            }
+            // 데이터 가공: 시간과 메시지 결합
+            string formatted_msg = "[" + time + "] " + cleaned_msg;
+
+            // 리스트박스에 가공된 메시지 추가
+            lstEchoWindow.Items.Add(formatted_msg);
+
+            // 상태 표시 라벨에 현재 메시지 개수 업데이트
+            lblStatus.Text = "현재 대화: " + lstEchoWindow.Items.Count.ToString() + "개";
+
+            // 1~2단계에서 구현했던 기본 UI 정리
+            txtInputMessage.Clear();
+            txtInputMessage.Focus();
+            lstEchoWindow.TopIndex = lstEchoWindow.Items.Count - 1;
         }
 
-        // [과제 2] 사용자 편의성(UX) 강화 - 엔터키 처리 로직
+        // 사용자 편의성(UX) 강화 - 엔터키 처리 로직
         private void txtInputMessage_KeyDown(object sender, KeyEventArgs e)
         {
             // 1. 눌린 키가 엔터(Enter) 키인지 확인

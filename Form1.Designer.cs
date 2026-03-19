@@ -32,6 +32,7 @@
             lstEchoWindow = new ListBox();
             txtInputMessage = new TextBox();
             btnSendMessage = new Button();
+            lblStatus = new Label();
             SuspendLayout();
             // 
             // lblTitle
@@ -57,7 +58,7 @@
             // txtInputMessage
             // 
             txtInputMessage.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            txtInputMessage.Location = new Point(29, 457);
+            txtInputMessage.Location = new Point(29, 441);
             txtInputMessage.Name = "txtInputMessage";
             txtInputMessage.Size = new Size(785, 38);
             txtInputMessage.TabIndex = 2;
@@ -77,11 +78,23 @@
             btnSendMessage.UseVisualStyleBackColor = false;
             btnSendMessage.Click += btnSendMessage_Click;
             // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.BackColor = SystemColors.ActiveCaption;
+            lblStatus.Font = new Font("맑은 고딕", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lblStatus.Location = new Point(29, 505);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(94, 25);
+            lblStatus.TabIndex = 4;
+            lblStatus.Text = "현재 대화:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1001, 558);
+            Controls.Add(lblStatus);
             Controls.Add(btnSendMessage);
             Controls.Add(txtInputMessage);
             Controls.Add(lstEchoWindow);
@@ -98,5 +111,6 @@
         private ListBox lstEchoWindow;
         private TextBox txtInputMessage;
         private Button btnSendMessage;
+        private Label lblStatus;
     }
 }
