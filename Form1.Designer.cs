@@ -33,8 +33,9 @@
             txtInputMessage = new TextBox();
             btnSendMessage = new Button();
             lblStatus = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnReset = new Button();
+            lblCharCount = new Label();
+            btnDeleteSelected = new Button();
             SuspendLayout();
             // 
             // lblTitle
@@ -60,12 +61,17 @@
             // txtInputMessage
             // 
             txtInputMessage.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            txtInputMessage.ForeColor = SystemColors.GrayText;
             txtInputMessage.Location = new Point(29, 441);
+            txtInputMessage.MaxLength = 50;
             txtInputMessage.Name = "txtInputMessage";
             txtInputMessage.Size = new Size(785, 38);
             txtInputMessage.TabIndex = 2;
             txtInputMessage.Text = "(여기에 입력)";
+            txtInputMessage.TextChanged += txtInputMessage_TextChanged;
+            txtInputMessage.Enter += txtInputMessage_Enter;
             txtInputMessage.KeyDown += txtInputMessage_KeyDown;
+            txtInputMessage.Leave += txtInputMessage_Leave;
             // 
             // btnSendMessage
             // 
@@ -91,32 +97,50 @@
             lblStatus.TabIndex = 4;
             lblStatus.Text = "현재 대화:";
             // 
-            // button1
+            // btnReset
             // 
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 5;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnReset.BackColor = Color.Red;
+            btnReset.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            btnReset.ForeColor = Color.Transparent;
+            btnReset.Location = new Point(838, 102);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(95, 72);
+            btnReset.TabIndex = 6;
+            btnReset.Text = "대화 기록 삭제";
+            btnReset.UseVisualStyleBackColor = false;
+            btnReset.Click += btnReset_Click;
             // 
-            // button2
+            // lblCharCount
             // 
-            button2.Location = new Point(820, 102);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 6;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            lblCharCount.AutoSize = true;
+            lblCharCount.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lblCharCount.Location = new Point(736, 444);
+            lblCharCount.Name = "lblCharCount";
+            lblCharCount.Size = new Size(78, 31);
+            lblCharCount.TabIndex = 7;
+            lblCharCount.Text = "0 / 50";
+            lblCharCount.Click += label1_Click;
+            // 
+            // btnDeleteSelected
+            // 
+            btnDeleteSelected.BackColor = SystemColors.ActiveCaption;
+            btnDeleteSelected.ForeColor = SystemColors.ControlText;
+            btnDeleteSelected.Location = new Point(838, 198);
+            btnDeleteSelected.Name = "btnDeleteSelected";
+            btnDeleteSelected.Size = new Size(95, 72);
+            btnDeleteSelected.TabIndex = 8;
+            btnDeleteSelected.Text = "선택항목 삭제";
+            btnDeleteSelected.UseVisualStyleBackColor = false;
+            btnDeleteSelected.Click += btnDeleteSelected_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1001, 558);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnDeleteSelected);
+            Controls.Add(lblCharCount);
+            Controls.Add(btnReset);
             Controls.Add(lblStatus);
             Controls.Add(btnSendMessage);
             Controls.Add(txtInputMessage);
@@ -135,7 +159,8 @@
         private TextBox txtInputMessage;
         private Button btnSendMessage;
         private Label lblStatus;
-        private Button button1;
-        private Button button2;
+        private Button btnReset;
+        private Label lblCharCount;
+        private Button btnDeleteSelected;
     }
 }
