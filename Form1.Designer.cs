@@ -33,6 +33,8 @@
             txtInputMessage = new TextBox();
             btnSendMessage = new Button();
             lblStatus = new Label();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // lblTitle
@@ -89,11 +91,32 @@
             lblStatus.TabIndex = 4;
             lblStatus.Text = "현재 대화:";
             // 
+            // button1
+            // 
+            button1.Location = new Point(0, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 5;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(820, 102);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 6;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1001, 558);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(lblStatus);
             Controls.Add(btnSendMessage);
             Controls.Add(txtInputMessage);
@@ -112,5 +135,7 @@
         private TextBox txtInputMessage;
         private Button btnSendMessage;
         private Label lblStatus;
+        private Button button1;
+        private Button button2;
     }
 }
